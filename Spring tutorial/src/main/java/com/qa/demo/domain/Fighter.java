@@ -1,12 +1,30 @@
 package com.qa.demo.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity //tells Spring its a table
 public class Fighter {
 	
 	//attributes
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //TELLS SPRING TO AUTO INCREMENT 
 	private Integer id;
+	
+	@Column(nullable=false)
 	private String name;
+	
+	@Column(nullable=false) // NOT NEEDED BUT DECENT, ALL U NEED IS THE PRIMARY KEY
 	private Integer age;
+	
+	@Column(nullable=false)
 	private Integer height;
+	
+	@Column(nullable=false)
 	private Integer reach;
 	
 	//constructors
@@ -62,7 +80,4 @@ public class Fighter {
 		return "Fighter [id=" + id + ", name=" + name + ", age=" + age + ", height=" + height + ", reach=" + reach
 				+ "]";
 	}
-	
-	
-
 }
